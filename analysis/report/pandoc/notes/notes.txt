@@ -1,0 +1,26 @@
+pandoc -s -S --latex-engine=pdflatex \
+--template=pandoc_stuff/plos_template/plos_template.tex \
+--filter pandoc-fignos \
+--filter pandoc-eqnos \
+--filter pandoc-tablenos \
+--filter pandoc-citeproc \
+--csl=pandoc_stuff/cell.csl \
+--bibliography=pandoc_stuff/paper.bib \
+-o report.pdf writeup.md
+
+
+pandoc -S -o test.pdf --filter pandoc-citeproc writeup.md
+
+http://dylanstorey.com/2015/12/Academic_Writing_With_Markdown.html
+
+
+
+pandoc -S -o test.pdf \
+--filter pandoc-citeproc \
+--filter pandoc-fignos \
+--filter pandoc-eqnos \
+--filter pandoc-tablenos \
+--variable classoption=twocolumn \
+--variable papersize=a4paper \
+-H pandoc/format.sty \
+writeup.md
