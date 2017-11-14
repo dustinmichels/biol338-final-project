@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,twocolumn]{article}
+\documentclass[12pt,a4paper,]{article}
 \usepackage[]{accanthis}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -74,12 +74,11 @@
 \begin{document}
 \maketitle
 
-\listoffigures
-\subsection{Abstract}\label{abstract}
+\section{Abstract}\label{abstract}
 
 No abstract yet\ldots{}
 
-\subsection{Introduction}\label{introduction}
+\section{Introduction}\label{introduction}
 
 This project is inspired by the paper ``Structure and function of the
 global ocean microbiome'' by Sunagawa et al. {[}1{]}, as well as the
@@ -108,6 +107,8 @@ structure this investigation for maximum reproducibility. Namely,
   All files are being stored (at various stages) using a public GitHub
   repository (See:
   \url{https://github.com/dustinmichels/biol338-final-project/tree/master}).
+  The code associated with this draft is tagged as ``draft01'' and be
+  retrieved in its entirety from GitHub.
 \item
   I am attempting to carry out most stages of data collection, analysis,
   and presentation, using scripts that should be viable to re-run on
@@ -119,7 +120,7 @@ structure this investigation for maximum reproducibility. Namely,
   which version I am using, and how I am using it.
 \end{itemize}
 
-\subsection{Methods}\label{methods}
+\section{Methods}\label{methods}
 
 I have used the eleven Tara Ocean samples that our class has used
 throughout the term, but I have downloaded Gene Ontology (GO) files for
@@ -149,28 +150,20 @@ I will need to further investigate exactly how this works to ensure the
 results are meaningful.
 
 The exact steps I took to do this analysis can be seen and reproduced
-online at \url{http://bit.ly/2zEMitP}.
+on-line at \url{http://bit.ly/2zEMitP}.
 
-\subsection{Results}\label{results}
+\section{Results}\label{results}
 
 Here are the heat maps and cluster maps that I generated.
 
 \begin{figure}
 \centering
-\includegraphics{imgs/heat/heat_all.png}
-\caption{Heat map for all samples\label{fig:heat_all}}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics{imgs/heat/heat_region.png}
-\caption{Heat map, grouped by region\label{fig:heat_region}}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics{imgs/heat/heat_zone.png}
-\caption{Heat map, grouped by zone\label{fig:heat_zone}}
+\includegraphics{imgs/heat/heat_group.png}
+\caption{Heat map for all samples, and for samples grouped by region,
+and for samples by grouped by zone. The top 30 most abundant functional
+groups are on the vertical axis, and the proportion of reads that mapped
+to that functional group is shown by the heat map
+color.\label{fig:heat_group}}
 \end{figure}
 
 \begin{figure}
@@ -191,7 +184,7 @@ Here are the heat maps and cluster maps that I generated.
 \caption{Cluster map, grouped by zone\label{fig:cluster_zone}}
 \end{figure}
 
-\subsection{Discussion}\label{discussion}
+\section{Discussion}\label{discussion}
 
 The cluster maps seem to suggest that deep chlorophyll maximum layer and
 the surface water later are more closely related to each other, in terms
@@ -204,8 +197,8 @@ Pacific, followed by the Souther Ocean, and finally the Arabian Sea.
 
 More analysis underway!
 
-\subsection*{References}\label{references}
-\addcontentsline{toc}{subsection}{References}
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}
 \hypertarget{ref-sunagawa_structure_2015}{}

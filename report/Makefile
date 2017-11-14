@@ -24,9 +24,6 @@ BIB = document_refs.bib
 ## CSL stylesheet (located in the csl folder of the PREFIX directory).
 CSL = plos
 
-## Latex stylesheet (located in the sty folder of the PREFIX directory).
-STY = format
-
 HTML=$(SRC:.md=.html)
 DOCX=$(SRC:.md=.docx)
 PDFS=$(SRC:.md=.pdf)
@@ -45,13 +42,12 @@ PANDOC_OPTIONS=--smart --standalone \
 --variable colorlinks \
 
 ## More Options
-PANDOC_HTML_OPTIONS=--to html5
+PANDOC_HTML_OPTIONS=--to html5 \
+--css $(PREFIX)/css/pandoc.css 
 PANDOC_DOCX_OPTIONS=
-PANDOC_PDF_OPTIONS=-H $(PREFIX)/sty/$(STY).sty \
+PANDOC_PDF_OPTIONS=-H $(PREFIX)/sty/format.sty \
 --variable indent \
---variable classoption=twocolumn \
 --variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm" \
---variable lof \
 --variable fontfamily=accanthis
 
 all:	$(PDFS) $(HTML) $(TEX) $(DOCX)
