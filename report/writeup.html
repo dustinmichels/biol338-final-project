@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Dustin Michels">
+  <title>Functional Comparisons between Ocean Regions</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Functional Comparisons between Ocean Regions</h1>
+<p class="author">Dustin Michels</p>
+<p class="date">Nov 2017</p>
+</header>
+<h2 id="abstract">Abstract</h2>
+<p>No abstract yet…</p>
+<h2 id="introduction">Introduction</h2>
+<p>This project is inspired by the paper “Structure and function of the global ocean microbiome” by Sunagawa et al. <span class="citation" data-cites="sunagawa_structure_2015">[1]</span>, as well as the paper “An obesity-associated gut microbiome with increased capacity for energy harvest” by Turnbaugh et al. <span class="citation" data-cites="turnbaugh_obesity-associated_2006">[2]</span>. The first paper seeks to characterize staxonomic differences and differences in gene function between ocean microbiomes, using Tara Ocean samples from around the world. They seek to identify which factors could best explain that variation. The second paper, by Turnbaugh et al., at one point describes the differences between the distal gut microbiomes of mice using functional annotations of the various microbiomes, and visualizes the result using heat maps.</p>
+<p>My goal in this paper was to employ some of the tactics of the Turnbaugh et al paper– understanding the functional differences between metagenomes using heat maps– to the domain of the Sunagawa et al. paper, characterizing functional differences between ocean regions.</p>
+<p>One thing to note: I am interested in the challenge of ensuring reproducibility in bioinformatics projects, and have attempted to structure this investigation for maximum reproducibility. Namely,</p>
+<ul>
+<li>All files are being stored (at various stages) using a public GitHub repository (See: <a href="https://github.com/dustinmichels/biol338-final-project/tree/master" class="uri">https://github.com/dustinmichels/biol338-final-project/tree/master</a>).</li>
+<li>I am attempting to carry out most stages of data collection, analysis, and presentation, using scripts that should be viable to re-run on other machines at other times to generate the same results. Even this report is being written in plain-text (Markdown) and converted into a report using a tool called Pandoc!</li>
+<li>Finally, I am taking care to document the software I am using, and which version I am using, and how I am using it.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<p>I have used the eleven Tara Ocean samples that our class has used throughout the term, but I have downloaded Gene Ontology (GO) files for each dataset, which detail the number of reads from that dataset that mapped to each of about 2000 different functional categories, pertaining to molecular function, cellular components, or biological processes.</p>
+<p>For each dataset, I normalized the ‘read count’ into a ‘read proportion’ (the number of reads that mapped to a given functional category out of all the reads.) I then selected the top 30 most abundant functional categories, for each dataset. I ended up dropping three of these functional categories from my analysis, which had missing data for one or more samples. That is to say, I wound up plotting the <em>union</em> of the 30 most abundant functional groups from each sample, which is 27 functional groups.</p>
+<p>I created three heat maps, one for all eleven samples, one grouped by region, and one grouped by zone.</p>
+<p>I then created three “cluster maps.” A cluster map is similar to a heat map, except it clusters data hierarchically. It calculates pairwise Euclidean distance between observations in n-dimensional space, and groups closely related attributes together. It rearranges data accordingly, and even draws tree structures resembling phylogenies to indicate groupings. This method produced pretty interesting results, but I will need to further investigate exactly how this works to ensure the results are meaningful.</p>
+<p>The exact steps I took to do this analysis can be seen and reproduced online at <a href="http://bit.ly/2zEMitP" class="uri">http://bit.ly/2zEMitP</a>.</p>
+<h2 id="results">Results</h2>
+<p>Here are the heat maps and cluster maps that I generated.</p>
+<figure>
+<img src="imgs/heat/heat_all.png" alt="Figure 1: Heat map for all samples" id="fig:heat_all" /><figcaption>Figure 1: Heat map for all samples</figcaption>
+</figure>
+<figure>
+<img src="imgs/heat/heat_region.png" alt="Figure 2: Heat map, grouped by region" id="fig:heat_region" /><figcaption>Figure 2: Heat map, grouped by region</figcaption>
+</figure>
+<figure>
+<img src="imgs/heat/heat_zone.png" alt="Figure 3: Heat map, grouped by zone" id="fig:heat_zone" /><figcaption>Figure 3: Heat map, grouped by zone</figcaption>
+</figure>
+<figure>
+<img src="imgs/cluster/cluster_all.png" alt="Figure 4: Cluster map for all samples" id="fig:cluster_all" /><figcaption>Figure 4: Cluster map for all samples</figcaption>
+</figure>
+<figure>
+<img src="imgs/cluster/cluster_region.png" alt="Figure 5: Cluster map, grouped by region" id="fig:cluster_region" /><figcaption>Figure 5: Cluster map, grouped by region</figcaption>
+</figure>
+<figure>
+<img src="imgs/cluster/cluster_zone.png" alt="Figure 6: Cluster map, grouped by zone" id="fig:cluster_zone" /><figcaption>Figure 6: Cluster map, grouped by zone</figcaption>
+</figure>
+<h2 id="discussion">Discussion</h2>
+<p>The cluster maps seem to suggest that deep chlorophyll maximum layer and the surface water later are more closely related to each other, in terms of prevalence of functional gene categories, prevalence than either is to the mesopelagic zone</p>
+<p>Similarly, the cluster maps would suggest that the North Atlantic and South Atlantic are the most functionally similar, followed by the North Pacific, followed by the Souther Ocean, and finally the Arabian Sea.</p>
+<p>More analysis underway!</p>
+<h2 id="references" class="unnumbered">References</h2>
+<div id="refs" class="references">
+<div id="ref-sunagawa_structure_2015">
+<p>1. Sunagawa S, Coelho LP, Chaffron S, Kultima JR, Labadie K, Salazar G, et al. Structure and function of the global ocean microbiome. Science. 2015;348: 1261359. doi:<a href="https://doi.org/10.1126/science.1261359">10.1126/science.1261359</a></p>
+</div>
+<div id="ref-turnbaugh_obesity-associated_2006">
+<p>2. Turnbaugh PJ, Ley RE, Mahowald MA, Magrini V, Mardis ER, Gordon JI. An obesity-associated gut microbiome with increased capacity for energy harvest. Nature. 2006;444: 1027–131. doi:<a href="https://doi.org/10.1038/nature05414">10.1038/nature05414</a></p>
+</div>
+</div>
+</body>
+</html>
