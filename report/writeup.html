@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="author" content="Dustin Michels">
-  <title>Functional Comparisons between Ocean Regions</title>
+  <title>Functional diversity of ocean microbiomes.</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="pandoc_stuff/css/pandoc.css">
   <!--[if lt IE 9]>
@@ -14,53 +14,196 @@
 </head>
 <body>
 <header>
-<h1 class="title">Functional Comparisons between Ocean Regions</h1>
+<h1 class="title">Functional diversity of ocean microbiomes.</h1>
 <p class="author">Dustin Michels</p>
 <p class="date">Nov 2017</p>
 </header>
 <h1 id="abstract">Abstract</h1>
 <p>No abstract yet…</p>
 <h1 id="introduction">Introduction</h1>
-<p>This project is inspired by the paper “Structure and function of the global ocean microbiome” by Sunagawa et al. <span class="citation" data-cites="sunagawa_structure_2015">[1]</span>, as well as the paper “An obesity-associated gut microbiome with increased capacity for energy harvest” by Turnbaugh et al. <span class="citation" data-cites="turnbaugh_obesity-associated_2006">[2]</span>. The first paper seeks to characterize staxonomic differences and differences in gene function between ocean microbiomes, using Tara Ocean samples from around the world. They seek to identify which factors could best explain that variation. The second paper, by Turnbaugh et al., at one point describes the differences between the distal gut microbiomes of mice using functional annotations of the various microbiomes, and visualizes the result using heat maps.</p>
+<p>There are important differences</p>
+<p>When comparing communities of macroorganismal organisms, one might compute metrics of species diversity. In microbial communities however, species are harder to define, in part due to the frequency with which horizontal gene transfer occurs. Some have suggested shifting focus away from the notion of species towards distributions of genes, when evaluating microbial communities. <span class="citation" data-cites="omalley_everything_2008">[1]</span>.</p>
+<p>Furthermore, while geographic isolation is considered a major factor in determining the distinctiveness of macroorganismal populations, microbiology has long entertained the hypothesis that ‘everything is everywhere: but the environment selects’– articulated by Lourens G. M. Baas Becking in 1934 <span class="citation" data-cites="omalley_everything_2008">[1]</span>. If taxonomy is</p>
+<p>Thus, one question in microbiology is what can</p>
+<p>Various microbiomes</p>
+<p>“Functional redundancy”</p>
+<p>has been observed in many environments</p>
+<p>The idea t– remained a widespread and well-regarded feature of microbiological throughout the 20th century.</p>
+<p>Various authors have found that differences in taxonomic composition reveal less about the particular physicochemically of an ecosystem than differences in functional composition.<span class="citation" data-cites="louca_decoupling_2016">[2]</span>.</p>
+<p>In this paper, we use metagenomics first to characterize taxonomic and functional diversity across eleven disparate Tara Ocean samples, and evaluate evidence of functional redundancy. Secondly, we will investigate environmental drivers of taxonomic and functional diversity, and especially whether environmental or geographic factors play a more important role. It is expected that functional redundancy will observable, and that environmental factors will prove a better differentiator of both functional and taxonomic diversity than geographic location.</p>
+<p>In their 2015 paper “Structure and function of the global ocean microbiome”, Sunagawa et al., analyzed metagenomic data from 243 <em>Tara Oceans</em> samples from around the world, in part to characterize the oceans taxonomic and functional diversity, and consider factors that could be driving taxonomic and functional stratification.</p>
+<ul>
+<li>temp and diversity</li>
+</ul>
+<p>&quot;</p>
+<p>Differences in metabolic function among organisms are thought to underlie much of this variation as a result of selection for specific metabolic pathways based on physicochemical conditions (“metabolic niche effects” or “environmental filtering”).</p>
+<p>However, other factors such as biotic interactions (5–7), limits to spatial dispersal (4), and neutral demo- graphic drift (8) could also affect community composition“<span class="citation" data-cites="louca_decoupling_2016">[2]</span>.</p>
+<p>which factors drive strafaction of taxonomic and functional groups</p>
+<p>“However, the recent claim that geographical barriers do not exist for any micro-organism (Finlay 2002) has renewed the search for examples of ‘microbial marsupials’ (Fenchel 2003).” <span class="citation" data-cites="whitaker_allopatric_2006">[3]</span></p>
+<p>“In general, environmental conditions strongly predicted the functional profiles of microbial communities but weakly predicted the taxonomic composition”<span class="citation" data-cites="louca_decoupling_2016">[2]</span></p>
+<p>“most environmental variables either correlated more strongly with relative functional group abundances than with OTU proportions within functional groups</p>
+<p>&quot; In particular, an organism’s metabolic potential appears to be the main trait selected for by environmental conditions across the global ocean.“”</p>
+<p>One paper that addresses these questions is “Structure and fucntion of global ocean microbiome” by Sunagawa et al. <span class="citation" data-cites="sunagawa_structure_2015">[4]</span>.</p>
+<p>“The bulk of global biogeochemical fluxes is driven by a core set of metabolic pathways that evolved in response to past geochemical condi- tions (1). Through time, these pathways have spread across microbial clades that compete within metabolic niches, resulting in an enormous microbial diversity characterized by high functional redundancy”<span class="citation" data-cites="louca_decoupling_2016">[2]</span></p>
+<p>This project is inspired by the paper “Structure and function of the global ocean microbiome” by Sunagawa et al. <span class="citation" data-cites="sunagawa_structure_2015">[4]</span>, as well as the paper “An obesity-associated gut microbiome with increased capacity for energy harvest” by Turnbaugh et al. <span class="citation" data-cites="turnbaugh_obesity-associated_2006">[<span class="citeproc-not-found" data-reference-id="turnbaugh_obesity-associated_2006"><strong>???</strong></span>]</span>. The first paper seeks to characterize staxonomic differences and differences in gene function between ocean microbiomes, using Tara Ocean samples from around the world. They seek to identify which factors could best explain that variation. The second paper, by Turnbaugh et al., at one point describes the differences between the distal gut microbiomes of mice using functional annotations of the various microbiomes, and visualizes the result using heat maps.</p>
 <p>My goal in this paper was to employ some of the tactics of the Turnbaugh et al paper– understanding the functional differences between metagenomes using heat maps– to the domain of the Sunagawa et al. paper, characterizing functional differences between ocean regions.</p>
+<p>Questions: * Which are the dominant functional and taxonomic groups? *</p>
 <p>One thing to note: I am interested in the challenge of ensuring reproducibility in bioinformatics projects, and have attempted to structure this investigation for maximum reproducibility. Namely,</p>
 <ul>
 <li>All files are being stored (at various stages) using a public GitHub repository (See: <a href="https://github.com/dustinmichels/biol338-final-project/tree/master" class="uri">https://github.com/dustinmichels/biol338-final-project/tree/master</a>). The code associated with this draft is tagged as “draft01” and be retrieved in its entirety from GitHub.</li>
 <li>I am attempting to carry out most stages of data collection, analysis, and presentation, using scripts that should be viable to re-run on other machines at other times to generate the same results. Even this report is being written in plain-text (Markdown) and converted into a report using a tool called Pandoc!</li>
 <li>Finally, I am taking care to document the software I am using, and which version I am using, and how I am using it.</li>
 </ul>
-<h1 id="methods">Methods</h1>
+<h1 id="materials-methods">Materials &amp; Methods</h1>
+<h2 id="data">Data</h2>
+<p>I have</p>
 <p>I have used the eleven Tara Ocean samples that our class has used throughout the term, but I have downloaded Gene Ontology (GO) files for each dataset, which detail the number of reads from that dataset that mapped to each of about 2000 different functional categories, pertaining to molecular function, cellular components, or biological processes.</p>
 <p>For each dataset, I normalized the ‘read count’ into a ‘read proportion’ (the number of reads that mapped to a given functional category out of all the reads.) I then selected the top 30 most abundant functional categories, for each dataset. I ended up dropping three of these functional categories from my analysis, which had missing data for one or more samples. That is to say, I wound up plotting the <em>union</em> of the 30 most abundant functional groups from each sample, which is 27 functional groups.</p>
 <p>I created three heat maps, one for all eleven samples, one grouped by region, and one grouped by zone.</p>
 <p>I then created three “cluster maps.” A cluster map is similar to a heat map, except it clusters data hierarchically. It calculates pairwise Euclidean distance between observations in n-dimensional space, and groups closely related attributes together. It rearranges data accordingly, and even draws tree structures resembling phylogenies to indicate groupings. This method produced pretty interesting results, but I will need to further investigate exactly how this works to ensure the results are meaningful.</p>
+<figure>
+<img src="imgs/map.png" alt="Figure 1: Map of sample sites." id="fig:map" /><figcaption>Figure 1: Map of sample sites.</figcaption>
+</figure>
 <p>The exact steps I took to do this analysis can be seen and reproduced on-line at <a href="http://bit.ly/2zEMitP" class="uri">http://bit.ly/2zEMitP</a>.</p>
+<h2 id="functional-annotations">Functional Annotations</h2>
+<p>EMBL-EBI GO annotations. Gene Ontology (GO) terms derived from InterPro matches to your sample.</p>
+<h2 id="taxonomy">Taxonomy</h2>
+<p>Mothur (version 1.38.1)</p>
+<p>Notes on exact commands are available at: https://github.com/dustinmichels/biol338-final-project/tree/master/data/taxonomy</p>
+<p>classified against to SILVA database</p>
+<h2 id="further-analysis-and-plotting">Further Analysis and Plotting</h2>
+<p>11 Samples. Downloaded Complete GO annotation</p>
+<p>EBI Metagenomics</p>
+<p>https://www.ebi.ac.uk</p>
 <h1 id="results">Results</h1>
 <p>Here are the heat maps and cluster maps that I generated.</p>
 <figure>
-<img src="imgs/heat/heat_group.png" alt="Figure 1: Heat map for all samples, and for samples grouped by region, and for samples by grouped by zone. The top 30 most abundant functional groups are on the vertical axis, and the proportion of reads that mapped to that functional group is shown by the heat map color." id="fig:heat_group" /><figcaption>Figure 1: Heat map for all samples, and for samples grouped by region, and for samples by grouped by zone. The top 30 most abundant functional groups are on the vertical axis, and the proportion of reads that mapped to that functional group is shown by the heat map color.</figcaption>
+<img src="imgs/heat/heat_group.png" alt="Figure 2: Heat map for all samples, and for samples grouped by region, and for samples by grouped by zone. The top 30 most abundant functional groups are on the vertical axis, and the proportion of reads that mapped to that functional group is shown by the heat map color." id="fig:heat_group" /><figcaption>Figure 2: Heat map for all samples, and for samples grouped by region, and for samples by grouped by zone. The top 30 most abundant functional groups are on the vertical axis, and the proportion of reads that mapped to that functional group is shown by the heat map color.</figcaption>
 </figure>
 <figure>
-<img src="imgs/cluster/cluster_all.png" alt="Figure 2: Cluster map for all samples" id="fig:cluster_all" /><figcaption>Figure 2: Cluster map for all samples</figcaption>
+<img src="imgs/cluster/cluster_all.png" alt="Figure 3: Cluster map for all samples" id="fig:cluster_all" /><figcaption>Figure 3: Cluster map for all samples</figcaption>
 </figure>
 <figure>
-<img src="imgs/cluster/cluster_region.png" alt="Figure 3: Cluster map, grouped by region" id="fig:cluster_region" /><figcaption>Figure 3: Cluster map, grouped by region</figcaption>
+<img src="imgs/cluster/cluster_region.png" alt="Figure 4: Cluster map, grouped by region" id="fig:cluster_region" /><figcaption>Figure 4: Cluster map, grouped by region</figcaption>
 </figure>
 <figure>
-<img src="imgs/cluster/cluster_zone.png" alt="Figure 4: Cluster map, grouped by zone" id="fig:cluster_zone" /><figcaption>Figure 4: Cluster map, grouped by zone</figcaption>
+<img src="imgs/cluster/cluster_zone.png" alt="Figure 5: Cluster map, grouped by zone" id="fig:cluster_zone" /><figcaption>Figure 5: Cluster map, grouped by zone</figcaption>
 </figure>
+<h3 id="heat-cluster">Heat / Cluster</h3>
+<ul>
+<li>Functional diversity smoother than taxonomic</li>
+</ul>
+<h3 id="joint">Joint</h3>
+<ul>
+<li>Functional diversity correlated with</li>
+</ul>
+<p>The fact that depth captures diversity better than other metadata may suggest that there is an aspect to “depth” not captured by the other variables.</p>
+<p>OCEAN PAPER:</p>
+<p>They suggest that temperature and light have stronger effects on functional trait composition than nutrients or salinity.</p>
+<p>Taxonomic compositions do not show a clear separation by regional origin</p>
+<p>Global ocean paper suggests “increase in taxonomic and functional” richness with depth.</p>
+<p>The idea that the</p>
 <h1 id="discussion">Discussion</h1>
 <p>The cluster maps seem to suggest that deep chlorophyll maximum layer and the surface water later are more closely related to each other, in terms of prevalence of functional gene categories, prevalence than either is to the mesopelagic zone</p>
 <p>Similarly, the cluster maps would suggest that the North Atlantic and South Atlantic are the most functionally similar, followed by the North Pacific, followed by the Souther Ocean, and finally the Arabian Sea.</p>
 <p>More analysis underway!</p>
-<h1 id="references" class="unnumbered">References</h1>
-<div id="refs" class="references">
+<p>They stated members of Proteobacteria, including Alphaproteobacteria and Gammaproteobacteria, as well as Cyanobacteria, Deferribacteres, and Thaumarchaeota.</p>
+<p>For me, temperature shadowed by depth.</p>
+<p>Functional redundancy. (including Cyanobacteria, De)</p>
+<p>“This has implications for the interpretation of differences in community structure across envi- ronments and time. Differences in taxonomic composition that do not affect functional com- position may have little relevance to ecosystem biochemistry; conversely, physicochemically sim- ilar environments could host taxonomically dis- tinct communities (26). Functional (rather than purely taxonomic) descriptions of microbial com- munities should therefore constitute the baseline for microbial biogeography, particularly across transects where geochemical gradients shape microbial niche distribution”<span class="citation" data-cites="louca_decoupling_2016">[2]</span></p>
+<h2 id="further-research">Further Research</h2>
+<ul>
+<li>Look at relatedness of species? (more related across depths or regions?)</li>
+</ul>
+<h1 id="references">References</h1>
+<div id="refs">
+<div id="ref-omalley_everything_2008">
+<p>1. O’Malley MA. “Everything is everywhere: But the environment selects”: Ubiquitous distribution and ecological determinism in microbial biogeography. Studies in History and Philosophy of Science Part C: Studies in History and Philosophy of Biological and Biomedical Sciences. 2008;39: 314–325. doi:<a href="https://doi.org/10.1016/j.shpsc.2008.06.005">10.1016/j.shpsc.2008.06.005</a></p>
+</div>
+<div id="ref-louca_decoupling_2016">
+<p>2. Louca S, Parfrey LW, Doebeli M. Decoupling function and taxonomy in the global ocean microbiome. Science. 2016;353: 1272–1277. doi:<a href="https://doi.org/10.1126/science.aaf4507">10.1126/science.aaf4507</a></p>
+</div>
+<div id="ref-whitaker_allopatric_2006">
+<p>3. Whitaker RJ. Allopatric origins of microbial species. Philosophical Transactions of the Royal Society B: Biological Sciences. 2006;361: 1975–1984. doi:<a href="https://doi.org/10.1098/rstb.2006.1927">10.1098/rstb.2006.1927</a></p>
+</div>
 <div id="ref-sunagawa_structure_2015">
-<p>1. Sunagawa S, Coelho LP, Chaffron S, Kultima JR, Labadie K, Salazar G, et al. Structure and function of the global ocean microbiome. Science. 2015;348: 1261359. doi:<a href="https://doi.org/10.1126/science.1261359">10.1126/science.1261359</a></p>
-</div>
-<div id="ref-turnbaugh_obesity-associated_2006">
-<p>2. Turnbaugh PJ, Ley RE, Mahowald MA, Magrini V, Mardis ER, Gordon JI. An obesity-associated gut microbiome with increased capacity for energy harvest. Nature. 2006;444: 1027–131. doi:<a href="https://doi.org/10.1038/nature05414">10.1038/nature05414</a></p>
+<p>4. Sunagawa S, Coelho LP, Chaffron S, Kultima JR, Labadie K, Salazar G, et al. Structure and function of the global ocean microbiome. Science. 2015;348: 1261359. doi:<a href="https://doi.org/10.1126/science.1261359">10.1126/science.1261359</a></p>
 </div>
 </div>
+<h1 id="appendix">Appendix</h1>
+
+<a name="tbl:docs"></a>
+<table>
+<caption>Table 1: For each sample, a ‘Reads encoding 5S rRNA’ file and a ‘Complete GO annotation’ file was downloaded from the given link. </caption>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 16%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Run ID</th>
+<th>Description</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ERR599104</td>
+<td>Southern Ocean (DCM)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS491095/runs/ERR599104/results/versions/2.0</td>
+</tr>
+<tr class="even">
+<td>ERR599090</td>
+<td>Southern Ocean (SURF)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS491044/runs/ERR599090/results/versions/2.0</td>
+</tr>
+<tr class="odd">
+<td>ERR599008</td>
+<td>Southern Ocean (MESO)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS491110/runs/ERR599008/results/versions/2.0</td>
+</tr>
+<tr class="even">
+<td>ERR598948</td>
+<td>South Pacific (DCM)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS492699/runs/ERR598948/results/versions/2.0</td>
+</tr>
+<tr class="odd">
+<td>ERR598992</td>
+<td>South Pacific (SURF)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS492642/runs/ERR598992/results/versions/2.0</td>
+</tr>
+<tr class="even">
+<td>ERR598999</td>
+<td>South Pacific (MESO)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS492680/runs/ERR598999/results/versions/2.0</td>
+</tr>
+<tr class="odd">
+<td>ERR598995</td>
+<td>North Pacific (DCM)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS493340/runs/ERR598995/results/versions/2.0</td>
+</tr>
+<tr class="even">
+<td>ERR598980</td>
+<td>North Pacific (MESO)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS493372/runs/ERR598980/results/versions/2.0</td>
+</tr>
+<tr class="odd">
+<td>ERR599142</td>
+<td>North Pacific (SURF)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS493300/runs/ERR599142/results/versions/2.0</td>
+</tr>
+<tr class="even">
+<td>ERR599078</td>
+<td>North Atlantic (SURF)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS494579/runs/ERR599078/results/versions/2.0</td>
+</tr>
+<tr class="odd">
+<td>ERR599031</td>
+<td>Arabian Sea (MESO)</td>
+<td>https://www.ebi.ac.uk/metagenomics/projects/ERP001736/samples/ERS488769/runs/ERR599031/results/versions/2.0</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>

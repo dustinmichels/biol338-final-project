@@ -1,6 +1,6 @@
 ###################################################
 # Makefile
-# 
+#
 # Inspired by:
 # https://gist.github.com/kristopherjohnson/7466917
 # https://github.com/kjhealy/pandoc-templates/blob/master/examples/Makefile
@@ -43,12 +43,12 @@ PANDOC_OPTIONS=--smart --standalone \
 
 ## More Options
 PANDOC_HTML_OPTIONS=--to html5 \
---css $(PREFIX)/css/pandoc.css 
+--css $(PREFIX)/css/pandoc.css
 PANDOC_DOCX_OPTIONS=
 PANDOC_PDF_OPTIONS=-H $(PREFIX)/sty/format.sty \
 --variable indent \
---variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm" \
---variable fontfamily=accanthis
+--variable fontfamily=accanthis \
+--variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm"
 
 all:	$(PDFS) $(HTML) $(TEX) $(DOCX)
 
@@ -56,7 +56,6 @@ pdf:	clean $(PDFS)
 html:	clean $(HTML)
 tex:	clean $(TEX)
 docx:	clean $(DOCX)
-
 
 %.pdf : %.md
 	pandoc $(PANDOC_OPTIONS) $(PANDOC_PDF_OPTIONS) -o $@ $<
@@ -66,7 +65,7 @@ docx:	clean $(DOCX)
 
 %.html : %.md
 	pandoc $(PANDOC_OPTIONS) $(PANDOC_HTML_OPTIONS) -o $@ $<
-	
+
 %.docx : %.md
 	pandoc $(PANDOC_OPTIONS) $(PANDOC_DOCX_OPTIONS) -o $@ $<
 
