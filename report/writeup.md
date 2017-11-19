@@ -16,7 +16,7 @@ My goal in this paper was to employ some of the tactics of the Turnbaugh et al p
 
 Questions:
 * Which are the dominant functional and taxonomic groups?
-* 
+*
 
 
 One thing to note: I am interested in the challenge of ensuring reproducibility in bioinformatics projects, and have attempted to structure this investigation for maximum reproducibility. Namely,
