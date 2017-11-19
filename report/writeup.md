@@ -43,6 +43,11 @@ Gene Ontology (GO) terms derived from InterPro matches to your sample.
 
 ## Taxonomy
 
+Mothur (version 1.38.1)
+
+Notes on exact commands are available at: https://github.com/dustinmichels/biol338-final-project/tree/master/data/taxonomy
+
+
 I have used the eleven Tara Ocean samples that our class has used throughout the term, but I have downloaded Gene Ontology (GO) files for each dataset, which detail the number of reads from that dataset that mapped to each of about 2000 different functional categories, pertaining to molecular function, cellular components, or biological processes.
 
 For each dataset, I normalized the 'read count' into a 'read proportion' (the number of reads that mapped to a given functional category out of all the reads.) I then selected the top 30 most abundant functional categories, for each dataset. I ended up dropping three of these functional categories from my analysis, which had missing data for one or more samples. That is to say, I wound up plotting the *union* of the 30 most abundant functional groups from each sample, which is 27 functional groups.
