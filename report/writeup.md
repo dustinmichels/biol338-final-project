@@ -36,6 +36,13 @@ One thing to note: I am interested in the challenge of ensuring reproducibility 
 
 # Methods
 
+## Functional Annotations
+
+EMBL-EBI GO annotations.
+Gene Ontology (GO) terms derived from InterPro matches to your sample.
+
+## Taxonomy
+
 I have used the eleven Tara Ocean samples that our class has used throughout the term, but I have downloaded Gene Ontology (GO) files for each dataset, which detail the number of reads from that dataset that mapped to each of about 2000 different functional categories, pertaining to molecular function, cellular components, or biological processes.
 
 For each dataset, I normalized the 'read count' into a 'read proportion' (the number of reads that mapped to a given functional category out of all the reads.) I then selected the top 30 most abundant functional categories, for each dataset. I ended up dropping three of these functional categories from my analysis, which had missing data for one or more samples. That is to say, I wound up plotting the *union* of the 30 most abundant functional groups from each sample, which is 27 functional groups.
@@ -45,6 +52,18 @@ I created three heat maps, one for all eleven samples, one grouped by region, an
 I then created three "cluster maps." A cluster map is similar to a heat map, except it clusters data hierarchically. It calculates pairwise Euclidean distance between observations in n-dimensional space, and groups closely related attributes together. It rearranges data accordingly, and even draws tree structures resembling phylogenies to indicate groupings. This method produced pretty interesting results, but I will need to further investigate exactly how this works to ensure the results are meaningful.
 
 The exact steps I took to do this analysis can be seen and reproduced on-line at <http://bit.ly/2zEMitP>.
+
+
+11 Samples.
+Downloaded Complete GO annotation
+
+EBI Metagenomics.
+
+
+
+
+https://www.ebi.ac.uk
+
 
 # Results
 

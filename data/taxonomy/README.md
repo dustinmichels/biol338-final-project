@@ -1,8 +1,10 @@
 # Taxon Notes
 
+Notes on how taxonomic annotations were obtained.
+
 ## Copy relevant 16s
 
-We have 11 run_ids to grab:
+I am interested in 11 runs:
 
 | Run ID    |
 | --------- |
@@ -18,9 +20,8 @@ We have 11 run_ids to grab:
 | ERR599078 |
 | ERR599031 |
 
-
-
-We can get them using this comand (Inside `/usr/local/data/Tara_datasets`)
+Get them using this command 
+(Inside `/usr/local/data/Tara_datasets`)
 
 ```bash
 cp */ERR599104*16SrRNA* */ERR599090*16SrRNA* */ERR599008*16SrRNA* */ERR598948*16SrRNA* */ERR598992*16SrRNA* */ERR598999*16SrRNA* */ERR598995*16SrRNA* */ERR598980*16SrRNA* */ERR599142*16SrRNA* */ERR599078*16SrRNA* */ERR599031*16SrRNA* ~/final_project/data/taxonomy
@@ -53,6 +54,8 @@ Classify sequences by comparing them to a reference database (SILVA)
 ```mothur
 classify.seqs(fasta=merged.fa, group=mergegroups, reference=/usr/local/data/silva_databases/silva.seed_v119.align, taxonomy=/usr/local/data/silva_databases/silva.seed_v119.tax, processors=20)
 ```
+
+## Copy results onto local computer
 
 Copy files over with Filezilla / SCP
 Open `merged.seed_v119.wang.tax.summary` in Excel.
