@@ -10,6 +10,15 @@ No abstract yet...
 
 # Introduction
 
+In their 2015 paper "Structure and function of the global ocean microbiome", Sunagawa et al., analyzed metagenomic data from 243 *Tara Oceans* samples from around the world, in part to characterize the oceans taxonomic and functional diversity, and consider factors that could be driving taxonomic and functional stratification.
+
+* temp and diversity
+
+which factors drive strafaction of taxonomic and functional groups.
+
+Are
+
+
 This project is inspired by the paper "Structure and function of the global ocean microbiome" by Sunagawa et al. [@sunagawa_structure_2015], as well as the paper "An obesity-associated gut microbiome with increased capacity for energy harvest" by Turnbaugh et al. [@turnbaugh_obesity-associated_2006]. The first paper seeks to characterize staxonomic differences and differences in gene function between ocean microbiomes, using Tara Ocean samples from around the world. They seek to identify which factors could best explain that variation. The second paper, by Turnbaugh et al., at one point describes the differences between the distal gut microbiomes of mice using functional annotations of the various microbiomes, and visualizes the result using heat maps.
 
 My goal in this paper was to employ some of the tactics of the Turnbaugh et al paper-- understanding the functional differences between metagenomes using heat maps-- to the domain of the Sunagawa et al. paper, characterizing functional differences between ocean regions.
@@ -56,5 +65,16 @@ The cluster maps seem to suggest that deep chlorophyll maximum layer and the sur
 Similarly, the cluster maps would suggest that the North Atlantic and South Atlantic are the most functionally similar, followed by the North Pacific, followed by the Souther Ocean, and finally the Arabian Sea.
 
 More analysis underway!
+
+
+They stated members of Proteobacteria, including Alphaproteobacteria and Gammaproteobacteria, as well as Cyanobacteria, Deferribacteres, and Thaumarchaeota.
+
+
+For me, temperature shadowed by depth.
+
+Functional redundancy.
+
+
+(including Cyanobacteria, De)
 
 # References
