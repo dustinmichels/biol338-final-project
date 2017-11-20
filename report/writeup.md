@@ -1,159 +1,84 @@
 ---
-title: Functional diversity of ocean microbiomes.
+title: Comparing functional and structural abundance in global ocean microbiomes
 date: Nov 2017
 author: Dustin Michels
 ---
 
 # Abstract
 
-No abstract yet...
+Microbial communities can be characterized by their taxonomic makeup, but some argue that looking at which functions are coded for in the genes of the microbial community as a whole can be more insightful. This is partly because the exact definition of a taxonomic classification for microbial life is a bit hazy, and partly because microbial communities that are very different taxonomically can be functionally very similar and occupy a similar environmental niche. This paper shows that taxonomic data can indeed be ‘nosier’ and reflective of sample site than functional data. Additionally, the paper investigates whether geographical or environmental factors drive community composition more strongly, by seeing how sample region (geography) and zone (environmental) correlate to taxonomy and function of microbiomes. We show that zone is indeed a better proxy of environmental forces than geography, and that it does indeed appear to drive microbial community composition more strongly.
+
+Please note, all relevant files needed to reproduce this analysis are available on GitHub: <https://github.com/dustinmichels/biol338-final-project/tree/master>. Even the report itself can be generated, in several formats, by navigating to the `report/` directory and typing `make`.
 
 
 # Introduction
 
-There are important differences
+There are particular considerations that arise when dealing with microfauna, as compared to larger life forms. In order to compare biological communities of macroorganismal organisms, for instance, one might compute metrics of species diversity. In microbiological communities however, species are harder to define– in part because of the frequency with which horizontal gene transfer occurs. Some have suggested we should shift our focus away from the notion of species and towards distributions of genes to effectively characterize and compare microbial communities. [@omalley_everything_2008].
 
-When comparing communities of macroorganismal organisms, one might compute metrics of species diversity. In microbial communities however, species are harder to define, in part due to the frequency with which horizontal gene transfer occurs. Some have suggested shifting focus away from the notion of species towards distributions of genes, when evaluating microbial communities. [@omalley_everything_2008].
+Various authors have observed that taxonomic composition reveals less about the particular physicochemistry of an ecosystem than differences in functional composition [@louca_decoupling_2016]. In human guts [@consortium_structure_2012] and in oceans [@sunagawa_structure_2015] alike, authors have observed "functional redundancy" in that that microbial communities can be very different taxonomically, can still have very similar functional genomes. This leads to the idea that functional diversity is a more meaningful indicator of the true difference between groups [@louca_decoupling_2016].
 
-Furthermore, while geographic isolation is considered a major factor in determining the distinctiveness of macroorganismal populations, microbiology has long entertained the hypothesis that ‘everything is everywhere: but the environment selects'-- articulated by Lourens G. M. Baas Becking in 1934 [@omalley_everything_2008]. If taxonomy is
+Furthermore, while geographic isolation is considered a major factor in determining the distinctiveness of macroorganismal populations, microbiology has long entertained the hypothesis that "everything is everywhere: but the environment selects"-- articulated by Lourens G. M. Baas Becking in 1934 [@omalley_everything_2008]. Though that idea has recently become more contested [@martiny_microbial_2006], there is still good evidence that environmental factors-- rather than geographic dispersal-- play a key role in determining the constitution of microbial communities [@omalley_everything_2008] [@sunagawa_structure_2015].
 
-Thus, one question in microbiology is what can
-
-Various microbiomes
-
-"Functional redundancy"
-
-has been observed in many environments
-
-The idea t-- remained a widespread and well-regarded feature of microbiological throughout the 20th century.
-
-Various authors have found that differences in taxonomic composition reveal less about the particular physicochemically of an ecosystem than differences in functional composition.[@louca_decoupling_2016].
-
-In this paper, we use metagenomics first to characterize taxonomic and functional diversity across eleven disparate Tara Ocean samples, and evaluate evidence of functional redundancy. Secondly, we will investigate environmental drivers of taxonomic and functional diversity, and especially whether environmental or geographic factors play a more important role. It is expected that functional redundancy will observable, and that environmental factors will prove a better differentiator of both functional and taxonomic diversity than geographic location.
-
-In their 2015 paper "Structure and function of the global ocean microbiome", Sunagawa et al., analyzed metagenomic data from 243 *Tara Oceans* samples from around the world, in part to characterize the oceans taxonomic and functional diversity, and consider factors that could be driving taxonomic and functional stratification.
-
-* temp and diversity
-
-Differences in metabolic function among organisms are thought to underlie much of this variation as a result of selection for specific metabolic pathways based on physicochemical conditions (“metabolic niche effects” or “environmental filtering”).
-
-However, other factors such as biotic interactions (5–7), limits to spatial dispersal (4), and neutral demo- graphic drift (8) could also affect community composition"[@louca_decoupling_2016].
-
-which factors drive strafaction of taxonomic and functional groups
-
- "However, the recent claim that geographical barriers do not exist for any micro-organism (Finlay 2002) has renewed the search for examples of ‘microbial marsupials’ (Fenchel 2003)."
- [@whitaker_allopatric_2006]
-
-
- "In general, environmental conditions strongly predicted the functional profiles of microbial communities but weakly predicted the taxonomic composition"[@louca_decoupling_2016]
-
- "most environmental variables either correlated more strongly with relative functional group abundances than with OTU proportions within functional groups
-
- " In particular, an organism’s metabolic potential appears to be the main trait selected for by environmental conditions across the global ocean.""
-
-
-One paper that addresses these questions is "Structure and fucntion of global ocean microbiome" by Sunagawa et al. [@sunagawa_structure_2015].
-
-"The bulk of global biogeochemical fluxes is driven by a core set of metabolic pathways that evolved in response to past geochemical condi- tions (1). Through time, these pathways have spread across microbial clades that compete within metabolic niches, resulting in an enormous microbial diversity characterized by high functional redundancy"[@louca_decoupling_2016]
-
-This project is inspired by the paper "Structure and function of the global ocean microbiome" by Sunagawa et al. [@sunagawa_structure_2015], as well as the paper "An obesity-associated gut microbiome with increased capacity for energy harvest" by Turnbaugh et al. [@turnbaugh_obesity-associated_2006]. The first paper seeks to characterize staxonomic differences and differences in gene function between ocean microbiomes, using Tara Ocean samples from around the world. They seek to identify which factors could best explain that variation. The second paper, by Turnbaugh et al., at one point describes the differences between the distal gut microbiomes of mice using functional annotations of the various microbiomes, and visualizes the result using heat maps.
-
-My goal in this paper was to employ some of the tactics of the Turnbaugh et al paper-- understanding the functional differences between metagenomes using heat maps-- to the domain of the Sunagawa et al. paper, characterizing functional differences between ocean regions.
-
-Questions:
-* Which are the dominant functional and taxonomic groups?
-
-One thing to note: I am interested in the challenge of ensuring reproducibility in bioinformatics projects, and have attempted to structure this investigation for maximum reproducibility. Namely,
-
-* All files are being stored (at various stages) using a public GitHub repository (See: <https://github.com/dustinmichels/biol338-final-project/tree/master>). The code associated with this draft is tagged as "draft01" and be retrieved in its entirety from GitHub.
-* I am attempting to carry out most stages of data collection, analysis, and presentation, using scripts that should be viable to re-run on other machines at other times to generate the same results. Even this report is being written in plain-text (Markdown) and converted into a report using a tool called Pandoc!
-* Finally, I am taking care to document the software I am using, and which version I am using, and how I am using it.
-
-
+This paper will seek to examine these four axes (taxon vs. function, & environment vs. geography) to see what they can reveal about ocean microbial community. We will first characterize taxonomic and functional diversity across eleven disparate metagenomic samples, and evaluate evidence of functional redundancy. We will then investigate environmental drivers of taxonomic and functional diversity, and especially whether environmental or geographic factors play a more important role. It is expected that functional redundancy will observable, and that environmental factors will prove a better differentiator of both functional and taxonomic diversity than geographic location.
 
 # Materials & Methods
 
 ## Data Gathering
 
-Eleven Tara Ocean DNA samples, from different regions and three different zones were used in this analysis. 'Regions' and 'zones' formed key groupings throughout the analysis, that allowed for evaluating the importance of geography vs. environmental factory in shaping microbial communities. The samples were shotgun sequenced, typically with an Illumina HiSeq 2000, and their sequences along with various metadata and analysis files were made available on EMBL-EBI (<https://www.ebi.ac.uk>).
+Eleven Tara Ocean DNA samples, from five different regions and three different zones were used in this analysis. The samples were shotgun sequenced, typically with an Illumina HiSeq 2000, and their sequences along with various metadata and analysis files were made available on EMBL-EBI (<https://www.ebi.ac.uk>).
 
 ![Map of sample sites.](imgs/map.png){#fig:map}
 
 To conduct functional analysis, I downloaded the "Complete GO annotation" file for each sample, from EMBL-EBI. This contains Gene Ontology (GO) terms derived from InterPro matches to the given sample. GO is a database of gene functions maintained by the GO Consortium (<http://www.geneontology.org/>).
 
-To conduct taxonomic analysis, I downloaded the "Reads encoding 16S rRNA" file for each sample, from EMBL-EBI. These are FASTA files, which were merged together and classified against the SILVA database, using Mothur (version 1.38.1)[@schloss_introducing_2009]. Notes on exact commands executed are available at <https://github.com/dustinmichels/biol338-final-project/tree/master/data/taxonomy>.
+To conduct taxonomic analysis, I downloaded the "Reads encoding 16S rRNA" file for each sample, from EMBL-EBI. These are FASTA files, which were merged together and classified against the SILVA database, using Mothur (version 1.38.1) [@schloss_introducing_2009]. Notes on exact commands executed are available at <https://github.com/dustinmichels/biol338-final-project/tree/master/data/taxonomy>.
 
 ## Data Analysis
 
-For both functional and taxonomic datasets, counts were normalized into percentages of reads mapping to a given group, within a given sample. Analysis focused on a superset of the $n$ most abundant groups from each sample-- the 25 most abundant functional groups, and the 10 most abundant taxonomic groups. These numbers where chosen so that most of the diversity would be captured (greater than 50% of all the taxonomic or functional groups) while minimizing the long tail of groups present only in trace amounts, which make the significant values harder to distill.
+For both functional and taxonomic datasets, counts were normalized into percentages of reads mapping to a given group, within a given sample. Analysis focused on a superset of the $n$ most abundant groups from each sample-- the 25 most abundant functional groups, and the 10 most abundant taxonomic groups. These numbers where chosen so that most of the diversity would be captured (greater than 50% of all the taxonomic or functional groups) while minimizing the long tail of groups present only in trace amounts, which make the significant values harder to distill. Taxonomic analysis was performed at both the actual level of 'taxonomy' (level2 in the mothur output) and also at the level of classes of phyla (level3 in mothur output.)
 
-Heatmaps and clustermaps were generated to characterize structural and functional diversity, across samples, regions, and zones. Principal component analysis (PCA) was conducted to highlight which samples were most distinct, and PC1 was plotted against other metadata to determine if any were strongly correlated, indicating a potential driver of diversity.
+Heatmaps and clustermaps were generated to characterize structural and functional diversity, across samples, regions, and zones. Principal component analysis (PCA) was conducted to highlight which samples were most distinct, and PC1 was plotted against other metadata to determine if any were strongly correlated, indicating a potential driver of diversity. Finally, scatterplot matrices were constructed to illustrate the relationships between all the metadata and how they relate to ocean regions and zones, to better contextualize analysis.
 
-Finally, scatterplot matrices were constructed to illustrate the relationships between all the metadata and how they relate to ocean regions and zones, to better contextualize analysis.
-
-A variety of data-munging, statistical analysis, and plotting techniques were applied to the data using Python and tools from the SciPy ecosystem[@scipy]. All plotting was done with the Matplotlib and Seaborn Python libraries [@hunter_matplotlib:_2007]. PCA and Linear Regression was conducted using scikit-learn [@pedregosa_scikit-learn:_2011].
+A variety of data-munging, statistical analysis, and plotting techniques were applied to the data using Python and tools from the SciPy ecosystem [@scipy]. All plotting was done with the Matplotlib and Seaborn Python libraries [@hunter_matplotlib:_2007]. PCA and Linear Regression were conducted using scikit-learn [@pedregosa_scikit-learn:_2011].
 
 
 # Results
 
-### Heat / Cluster
+**Heat maps.** To characterize structural and functional diversity, heat maps and cluster maps were constructed, providing an overview of which functional and taxonomic groups were most abundant, and how different samples varied in their relative abundances. The visualizations showed catalytic activity, ATP binding, and oxidation-reduction process genes to be particularly abundant, followed by metaboloic process, DNA binding, membrane, and oxidoreductase activity genes. As for functional groups: in their survey of the global ocean microbiome, @sunagawa_structure_2015 Sunagawa et al., noted that several classes of Proteobacteria, including Alphaproteobacteria and Gammaproteobacteria, as well as Cyanobacteria, Deferribacteres, and Thaumarchaeota were especially abundant. This is consistent with our findings here, except perhaps that Thaumarchaeota was not particularly abundant.
 
-* Functional diversity smoother than taxonomic
+![Cluster maps for highlighting proportional abundance of top functional and taxonomic groups. Hierarchal clustering, by euclidean distance, uncovers similarity between groups. (A) All 11 samples vs. functional groups. (B) Mean abundance for samples grouped by ocean layer vs. functional groups. (C) All 11 samples vs taxonomic groups. (D) Mean abundance for samples grouped by ocean layer vs. taxonomic groups.](imgs/cluster.png){#fig:cluster}
 
-### Joint
+The hierarchal clustering of the cluster maps indicates which samples and attributes are most closely related. The tactic computes euclidean distance between rows and columns then rearranges them by closeness. In both taxonomic and structural analysis, the mesopelegic zone was categorized as especially distinct from the DCM and SURF. Surface and DCM samples do not appear to be grouped in any discernible pattern. These maps also provide evidence of
+functional redundancy, in that the functional maps are very "smooth," reflecting fairly consistent levels of each functional group across samples and regions, whereas the taxonomic maps, which appear more "pixilated" because there is more variability. This effect could be slightly exasperated by the fact that fewer attributes appear on the y-axis, and a more rigorous selection of how many values to plot on each axis would have been ideal.
 
-* Functional diversity correlated with
+**Principal component analysis.** To investigate the value of taxonomic vs. functional annotations in assessing the differences between microbial communities, principal component analysis was performed. For both taxonomic and functional plots: when points are colored by zone, there is clear clustering of the mesopelegic samples together, but when clustered by region there is no discernible pattern. This suggests that ocean layer is more tightly related to functional composition than region (see: +@fig:go_pca and +@fig:tax_pca).
 
+![Principal component analysis (PCA) of the relative abundance of the top 29 functional groups (29 being the the superset of the top 25 from each sample.) Plots A and B are equivalent except for the coloration. In A), dots are colored by region. In B), dots are colored by ocean zone.](imgs/go_pca.png){#fig:go_pca}
 
-The fact that depth captures diversity better than other metadata may suggest that there is an aspect to "depth" not captured by the other variables.
+![Principal component analysis (PCA) of the relative abundance of the top 18 taxonomic groups (18 being the the superset of the top 18 from each sample. This is 'taxonomy' at the class of phyla scale. Plots A and B are equivalent except for the coloration. In A), dots are colored by region. In B), dots are colored by ocean zone.](imgs/tax_pca.png){#fig:tax_pca}
 
-OCEAN PAPER:
+In the paper 'Structure and function of the global ocean microbiome'[@sunagawa_structure_2015], Sunagawa et al., plotted a number of metadata variables against a values derived from a principal coordinate analysis (PCoA) of taxonomic data. They found that temperature and dissolved oxygen were especially highly correlated, while nutrients has only a weak correlation. Similarly, I tried plotting a single PC axis against various metadata (oxygen, salinity, nitrogen, depth, and temperature) for each of the three PC analyses I conducted (functional groups, taxonomy at level 2, and taxonomy at level 3). Unlike Sunagawa et al., I did not find oxygen or temperature to correlate particularly well with my functional or taxonomic data. Depth vs. functional group provided the strongest correlation (r2=0.94), followed by nitrate (r2=0.59). The R2 values for my two taxonomy PC axes are so variable as to seem very unreliable.
 
-They suggest that temperature and light have stronger effects on functional trait composition than nutrients or salinity.
+|          |  GO   | Tax-2 |  Tax-3  |
+|----------|-------|-------|---------|
+| chlor    | 0.36  | 0.21  | 0.00086 |
+| depth    | 0.94  | 0.49  | 0.32    |
+| nitrate  | 0.59  | 0.079 | 0.7     |
+| oxygen   | 0.32  | 0.72  | 0.003   |
+| salinity | 0.089 | 0.015 | 0.22    |
+| temp     | 0.3   | 0     | 0.74    |
 
-Taxonomic compositions do not show a clear separation by regional origin
+Table: R2 values for PC1 of functional data (GO), and taxonomy data at two levels of classification (Tax-2 and Tax-3) against metadata. {#tbl:r2}
 
-Global ocean paper suggests "increase in taxonomic and functional" richness with depth.
+There are a few reasons my analysis may have diverged so much from Sunagawa et al. Firsly. they chose to focus only on samples from the surface layer. It seemly likely that variability between the mesopelegic zone and the surface layer is so great that depth completely overwhelmed the over variables. Additionally, I may not really have had enough data to conduct this type of analysis effectively, given my very low values for the variance predicted by these axis.
 
-The idea that the
-
-
-
-# Discussion
-
-The cluster maps seem to suggest that deep chlorophyll maximum layer and the surface water later are more closely related to each other, in terms of prevalence of functional gene categories, prevalence than either is to the mesopelagic zone
-
-Similarly, the cluster maps would suggest that the North Atlantic and South Atlantic are the most functionally similar, followed by the North Pacific, followed by the Souther Ocean, and finally the Arabian Sea.
-
-More analysis underway!
-
-
-They stated members of Proteobacteria, including Alphaproteobacteria and Gammaproteobacteria, as well as Cyanobacteria, Deferribacteres, and Thaumarchaeota.
-
-
-For me, temperature shadowed by depth.
-
-Functional redundancy.
-(including Cyanobacteria, De)
-
-"This has implications for the interpretation of differences in community structure across envi- ronments and time. Differences in taxonomic composition that do not affect functional com- position may have little relevance to ecosystem biochemistry; conversely, physicochemically sim- ilar environments could host taxonomically dis- tinct communities (26). Functional (rather than purely taxonomic) descriptions of microbial com- munities should therefore constitute the baseline for microbial biogeography, particularly across transects where geochemical gradients shape microbial niche distribution"[@louca_decoupling_2016]
-
-
-## Further Research
-
-* Look at relatedness of species? (more related across depths or regions?)
-
-
-
-
+To assess the claim that environmental factors dictate microbial composition more than region of origin, I made scatter plot matrices with metadata variables plotted against each other, and dots colored by either zone ore region. These plots revealed that zone corresponded to a number of environmental variables while region was fairly scattered. Thus, zone is a better proxy for environmental conditions. The fact that functional and taxonomic data aligned better with zone than region (Fig 2 and 3), suggests that environmental conditions are a bigger driver of community composition than geography.
 
 # References
 
 <div id="refs"></div>
 
-
 # Appendix
-
 
 \tiny
 

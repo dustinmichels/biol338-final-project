@@ -39,16 +39,18 @@ PANDOC_OPTIONS=--smart --standalone \
 --filter pandoc-tablenos \
 --variable fontsize=12pt \
 --variable papersize=a4 \
---variable colorlinks \
+--variable colorlinks
+# --variable classoption=twocolumn \
 
 ## More Options
 PANDOC_HTML_OPTIONS=--to html5 \
 --css $(PREFIX)/css/pandoc.css
-PANDOC_DOCX_OPTIONS=
+PANDOC_DOCX_OPTIONS=--variable indent \
+--reference-doc=pandoc_stuff/word/custom-reference.docx
 PANDOC_PDF_OPTIONS=-H $(PREFIX)/sty/format.sty \
 --variable indent \
---variable fontfamily=accanthis \
---variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm"
+--variable geometry:"top=1.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm"\
+--variable fontfamily=accanthis
 
 all:	$(PDFS) $(HTML) $(TEX) $(DOCX)
 
