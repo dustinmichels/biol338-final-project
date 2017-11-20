@@ -1,6 +1,6 @@
 # biol338-final-project
 
-The code required to reproduce my analysis for the final project of Biology 338: Genomics and Bioinformatics, at Carleton College. 
+The code required to reproduce my analysis for the final project of `Biology 338: Genomics and Bioinformatics`, at Carleton College. 
 
 ## Releases
 
